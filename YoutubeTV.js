@@ -1,18 +1,20 @@
 const orig = JSON.parse;
 JSON.parse = function () {
   const r = orig.apply(this, arguments);
-  console.log(JSON.stringify(r, null, 2));
 
   if (r.adPlacements) {
     r.adPlacements = [];
+    console.log(JSON.stringify(r, null, 2));
   }
 
   if (r.playerAds) {
     r.playerAds = false;
+    console.log(JSON.stringify(r, null, 2));
   }
 
   if (r.adSlots) {
     r.adSlots = [];
+    console.log(JSON.stringify(r, null, 2));
   }
 
   if (r.contents
@@ -24,6 +26,7 @@ JSON.parse = function () {
     && r.contents.tvBrowseRenderer.content.tvSurfaceContentRenderer.content.sectionListRenderer.contents
   ) {
     r.contents.tvBrowseRenderer.content.tvSurfaceContentRenderer.content.sectionListRenderer.contents = r.contents.tvBrowseRenderer.content.tvSurfaceContentRenderer.content.sectionListRenderer.contents.filter(e => !e.adSlotRenderer);
+    console.log(JSON.stringify(r, null, 2));
   }
 
   return r;
