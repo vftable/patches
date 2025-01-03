@@ -1,6 +1,7 @@
 const orig = JSON.parse;
 JSON.parse = function () {
   const r = orig.apply(this, arguments);
+  console.log(JSON.stringify(r, null, 2));
 
   if (r.adPlacements) {
     r.adPlacements = [];
