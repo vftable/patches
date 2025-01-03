@@ -29,3 +29,4 @@ JSON.parse = function () {
   return r;
 };
 
+console.log("[+] Youtube TV tweak injected successfully!");
